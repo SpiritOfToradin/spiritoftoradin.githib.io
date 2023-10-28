@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Интерактивная карта Небесной Рапсодии(Альден)</title>
+</head>
+<style>
+	#map_image{
+		position: absolute;
+		margin-left:100px;
+	}	
+	
+	.descr{
+		position: absolute;
+		margin-left: 775px;
+		width:525px;
+		padding-left:10px;
+	}
+	
+	#map_title{
+		border: solid #000000 2px;
+		font-size:45pt;
+		text-align:center;
+	}
+	
+	#place_title{
+		margin-top:75px;
+		border: solid #000000 2px;
+		text-align:center;
+		font-size:25pt;
+		height:50px;
+	}
+	
+	#place_description{
+		margin-top:125px;
+		border: solid #000000 2px;
+		height:475px;
+		text-align:left;
+		font-size:17pt;
+	}
+	
+	.poly{
+		position: absolute;
+		background-color:#ffffff;
+		
+
+		
+	}
+	
+	.graf
+	{
+		color:#ff0000;
+		position: absolute;
+		text-shadow: 2px 2px 2px black;
+		font-size:20pt;
+	}
+	
+	.voen
+	{
+		color:#ffffff;
+		position: absolute;
+		text-shadow: 2px 2px 2px black;
+		font-size:20pt;
+	}
+	
+	#poly1{
+		float:left;
+		height:400px;
+		width:400px;
+		shape-outside: polygon(137px 39px , 134px 69px , 108px 96px , 131px 304px , 188px 324px , 218px 287px , 257px 287px , 306px 163px , 388px 131px , 382px 67px , 334px 21px , 243px 13px , 174px 16px );
+		clip-path:polygon(137px 39px , 134px 69px , 108px 96px , 131px 304px , 188px 324px , 218px 287px , 257px 287px , 306px 163px , 388px 131px , 382px 67px , 334px 21px , 243px 13px , 174px 16px );
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name1
+	{
+		margin-left:150px;
+		margin-top:90px;
+		transform:  rotate(-30deg);
+
+	}
+	
+	#poly2{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(207px 296px, 110px 379px, 106px 572px, 302px 574px, 298px 323px );
+		clip-path:polygon(207px 296px, 110px 379px, 106px 572px, 302px 574px, 298px 323px );
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name2
+	{
+		margin-left:100px;
+		margin-top:417px;
+		transform:  rotate(-60deg);
+
+	}
+	
+	#poly3{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(416px 73px, 452px 90px, 496px 139px, 572px 180px, 597px 297px, 625px 354px, 685px 307px, 728px 216px, 728px 40px, 585px 9px, 483px 20px, 435px 48px);
+		clip-path: polygon(416px 73px, 452px 90px, 496px 139px, 572px 180px, 597px 297px, 625px 354px, 685px 307px, 728px 216px, 728px 40px, 585px 9px, 483px 20px, 435px 48px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name3
+	{
+		margin-left:470px;
+		margin-top:70px;
+		transform:  rotate(25deg);
+
+	}
+	
+	#poly4{
+		
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(411px 135px, 345px 145px, 312px 282px, 312px 376px, 353px 431px, 412px 394px, 495px 405px, 540px 422px, 544px 388px, 499px 142px);
+		clip-path: polygon(411px 135px, 345px 145px, 312px 282px, 312px 376px, 353px 431px, 412px 394px, 495px 405px, 540px 422px, 544px 388px, 499px 142px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name4
+	{
+		
+		margin-left:370px;
+		margin-top:243px;
+		transform:  rotate(0deg);
+
+	}
+	
+	#poly5{
+		
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(418px 401px, 360px 471px, 384px 544px, 470px 584px, 640px 554px, 710px 425px, 690px 362px, 588px 408px, 537px 436px);
+		clip-path: polygon(418px 401px, 360px 471px, 384px 544px, 470px 584px, 640px 554px, 710px 425px, 690px 362px, 588px 408px, 537px 436px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name5
+	{
+		
+		margin-left:418px;
+		margin-top:458px;
+		transform:  rotate(0deg);
+
+	}
+	
+	#poly6{
+		
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(555px 174px, 585px 203px, 555px 235px, 525px 203px );
+		clip-path: polygon(555px 174px, 585px 203px, 555px 235px, 525px 203px );
+		opacity: 0.5;
+		
+	}
+	
+	#print{
+		position:absolute;
+		margin-top:240px;
+		margin-left:300px;
+		height:250px;
+		width:250px;
+		opacity:0.5;
+	}
+
+</style>
+<script>
+	function polyon1()
+	{
+		let graf=document.getElementById('poly_name1');
+		let pol=document.getElementById('poly1');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Герцегство Садат';
+		let descrip= "Это крупное герцегство не защищено стенами. Даже вокруг главного замка стены полые, что дает скорее декоративный вид, нежели защищает. Лорд Садат, проживающий здесь с семьей, является потомственным торговцем, поэтому его герцегство - один большой торговый город. Проще говоря, каждый здесь - наемник. В целом, горожане спокойно относятся к любым расам и существам. Разве что к Порче относятся недружелюбно. Да и цены накручивают. Да, основная беда Садата - более высокие цены на все. Жить тут дорого, но безопастно. Относительно.";
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon1_out(){
+		let graf=document.getElementById('poly_name1');
+		let pol=document.getElementById('poly1');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Регион не выбран';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на регион, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon2()
+	{
+		let graf=document.getElementById('poly_name2');
+		let pol=document.getElementById('poly2');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Герцегство Ранджар-ара';
+		let descrip= 'Это герцегство в свое время приплыло к империи само по себе. Откололось от другого королевства, и потерялось в верхних уровнях планеты. В итоге, приплыло сюда. Именно из-за этого у него несколько отличается архитектура, и, что самое главное - есть боевая арена. В культуре местных понятие силы занимает не последнее место. Да и в целом им нравится смотреть на красивые бои. Из-за частых боев здесь много оружейников, поэтому оружие здесь дешевле. ';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon2_out(){
+		let graf=document.getElementById('poly_name2');
+		let pol=document.getElementById('poly2');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Регион не выбран';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на регион, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon3()
+	{
+		let graf=document.getElementById('poly_name3');
+		let pol=document.getElementById('poly3');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Герцегство Самардейл';
+		let descrip= 'Герцог Самардейл прослыл, как откровенный бабник и идиот. Про то, как он оказался наследником предыдущего герцога, ходят не самые приятные слухи, ведь он был седьмым сыном. Но череда случайностей привела к тому, что шесть предшевствующих погибли при различных обстоятельствах. Впрочем, единственное, что не отнимешь у нынешнего герцега - его глаза. Он умеет выбирать людей, которые и правят герцегством. Лишь блаодаря им город и нижние уровни худо-бедно процветают. Пока их хозяин веселится в своем огромном дворце, для перемещения по которому даже приходится использовать карету. В самом Самардейле, из-за подобных пристрастий герцога, больше элитных товаров, а значит, цена на них ниже. ';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon3_out(){
+		let graf=document.getElementById('poly_name3');
+		let pol=document.getElementById('poly3');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Регион не выбран';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на регион, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon4()
+	{
+		let graf=document.getElementById('poly_name4');
+		let pol=document.getElementById('poly4');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Столица';
+		let descrip= 'Местная столица существовала еще до того, как мир раскололся и взмыл в воздух. В острове все еще можно найти останки и руины старой канализации, и оставшиеся здания старого города. Этой же старостью обоснована и архитектура города. Разве что раньше город был на холме и реально представлял из себя крепость, теперь же ему пришлось превратиться в порт. Три стены четко делят город. В самом центре находится Великий Император Империи Гардика, Герцог Столический, Владелец герцогства Ранджар-ара, Держатель Воздушного Колодца, Властитель столичного Альдена, капитан Королевы Аладана, Хозяин Ледяного Дворца, Глава государственного совета, Магистр магических наук, Директор столичной академии магии, Адмирал великого флота, Генералисимус всех сухопутных армий, Хранитель Сияющего Кубка, Трехкратный Чемпион Великой Императорской Арены, его высочество Персиваль IX. Вторым уровнем вокруг императоского дворца его высочества расположены личные поместья светейшеств герцогов и графов, а так же казарма личного гвардейского корпуса его высочества Императора. Третий слой предназначен для знатного люда, богатых торговцев и приключенцев, что могут позволить себе купить дом в столице. В столице продается множество элитных товаров, и можно найти то, что не найти в других городах, однако цены завышены примерно в полтора раза. Кроме того, найти здесь простые предметы довольно трудно, и они тоже здесь значительно дороже. Кроме того, на территории столицы запрещена продажа чего-либо без личного письменного разрешения губернатора. Впрочем, город довольно большой, и это не мешает девушкам в темных углах торговать своей честью. Однако, напоминаем приключенцам: нарушение запрета на торговлю карается штрафом в 1 000 000 золотых.';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		tex.style.fontSize = "11pt";
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon4_out(){
+		let graf=document.getElementById('poly_name4');
+		let pol=document.getElementById('poly4');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Регион не выбран';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на регион, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		tex.style.fontSize = "17pt";
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon5()
+	{
+		let graf=document.getElementById('poly_name5');
+		let pol=document.getElementById('poly5');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Герцегство Гвадекура';
+		let descrip= 'Гвадекура является одним из самых старых регионов империи. Изначально это был небольшой город с одной стеной, однако после раскола планеты расти городу стало некуда. Только в сторону. Поэтому, спустя несколько поколений, стену нарастили, создав самую неоднозначную ситуацию в местнйо архитектуре.Врочем,это не мешает Гвадекубе быть надежным щитом империи. Именно здесь набирают и тренируют солдат для армии и флота. Поэтому, простое оружие здесь встречается довольно часто, и довольно дешево';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon5_out(){
+		let graf=document.getElementById('poly_name5');
+		let pol=document.getElementById('poly5');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Регион не выбран';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на регион, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon6()
+	{
+		let graf=document.getElementById('poly_name6');
+		let pol=document.getElementById('poly6');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Воздушный колодец';
+		let descrip= 'Воздушные колодцы - это устройства, предназначенные для быстрого подъема судов. Большинство из них блуждающие, так как привязаны к магическим потокам. А так как потоки блуждают, и блуждают острова из-за ветров, никогда не угадаешь, где будет колодец. Однако здесь, силами магов и природы, был создан стационарный колодец, привязанный к Люк-О-Дану. Однако, если другие Колодцы за проход почти ничего не требуют (потому как были созданы всеми государствами, и считаются нейтральными постройками), то вот за проход через Люкоданский Колодец нужно заплатить пошлину, и отстоять очередь. Впрочем, для торговцев это лучший вариант - надежный, и гарантированно не встретишь пиратов или мятежников';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon6_out(){
+		let graf=document.getElementById('poly_name6');
+		let pol=document.getElementById('poly6');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Регион не выбран';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на регион, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	
+	
+	function defens_print(){
+		let prn = document.getElementById('print');
+		prn.src="печать-защищенная.png"
+		prn.style.opacity = 1
+		
+	}
+	
+	function undefens_print(){
+		let prn = document.getElementById('print');
+		prn.src="печать.png"
+		prn.style.opacity = 0.5
+	}
+</script>
+	
+<body bgcolor="#FFDE99" background="map_back.jpg">
+
+<div id="map_image"><img src="карта_альден.png" width="650" height="600" alt="Ну и куда ты засунул карту?"/></div>
+<div id="map_title" class="descr">Альден</div>
+<div id="place_title" class="descr">Регион не выбран</div>
+<div id="place_description" class="descr">
+	<img src="печать.png" width="500" height="500" alt="" id="print" onmouseover="defens_print()" onmouseout="undefens_print()"/>
+	<p id="text_descr">Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на регион, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные... </p>
+</div>
+
+<div id="poly1" class="poly" onmouseover='polyon1()' onMouseOut="polyon1_out()"></div>
+<p id="poly_name1" class="graf" onmouseover='polyon1()'>Герцегство Садат</p>
+<div id="poly2" class="poly" onmouseover='polyon2()' onMouseOut="polyon2_out()"></div>	
+<p id="poly_name2" class="graf"onmouseover='polyon2()' onMouseOut="polyon2_out()">Герцегство Ранджар-ара</p>
+<div id="poly3" class="poly" onmouseover='polyon3()' onMouseOut="polyon3_out()"></div>	
+<p id="poly_name3" class="graf" onmouseover='polyon3()' onMouseOut="polyon3_out()">Герцегство Самардейл</p>
+<div id="poly4" class="poly" onmouseover='polyon4()' onMouseOut="polyon4_out()"></div>	
+<p id="poly_name4" class="voen" onmouseover='polyon4()'>Столица</p>
+<div id="poly5" class="poly" onmouseover='polyon5()' onMouseOut="polyon5_out()"></div>	
+<p id="poly_name5" class="graf" onmouseover='polyon5()' onMouseOut="polyon5_out()">Герцегство Гвадекура</p>
+<div id="poly6" class="poly" onmouseover='polyon6()' onMouseOut="polyon6_out()"></div>	
+
+
+</body>
+</html>

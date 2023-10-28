@@ -1,0 +1,487 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Интерактивная карта Небесной Рапсодии</title>
+</head>
+<style>
+	#map_image{
+		position: absolute;
+		margin-left:100px;
+	}	
+	
+	.descr{
+		position: absolute;
+		margin-left: 775px;
+		width:525px;
+		padding-left:10px;
+	}
+	
+	#map_title{
+		border: solid #000000 2px;
+		font-size:45pt;
+		text-align:center;
+	}
+	
+	#place_title{
+		margin-top:75px;
+		border: solid #000000 2px;
+		text-align:center;
+		font-size:25pt;
+		height:50px;
+	}
+	
+	#place_description{
+		margin-top:125px;
+		border: solid #000000 2px;
+		height:475px;
+		text-align:left;
+		font-size:17pt;
+	}
+	
+	.poly{
+		position: absolute;
+		background-color:#ffffff;
+		
+
+		
+	}
+	
+	.graf
+	{
+		color:#ff0000;
+		position: absolute;
+		text-shadow: 2px 2px 2px black;
+		font-size:20pt;
+	}
+	
+	.voen
+	{
+		color:#ffffff;
+		position: absolute;
+		text-shadow: 2px 2px 2px black;
+		font-size:20pt;
+	}
+	
+	#poly1{
+		float:left;
+		height:400px;
+		width:400px;
+		shape-outside: polygon(173px 8px,162px 82px,128px 133px,150px 201px,226px 210px,298px 178px,320px 118px, 365px 111px, 376px 19px, 275px 10px);
+		clip-path:polygon(173px 8px,162px 82px,128px 133px,150px 201px,226px 210px,298px 178px,320px 118px, 365px 111px, 376px 19px, 275px 10px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name1
+	{
+		margin-left:150px;
+		margin-top:90px;
+		transform:  rotate(-30deg);
+
+	}
+	
+	#poly2{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(399px 17px, 380px 112px, 371px 134px, 386px 188px, 407px 204px, 501px 195px, 545px 99px, 556px 64px, 543px 18px, 491px 11px, 414px 15px);
+		clip-path:polygon(399px 17px, 380px 112px, 371px 134px, 386px 188px, 407px 204px, 501px 195px, 545px 99px, 556px 64px, 543px 18px, 491px 11px, 414px 15px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name2
+	{
+		margin-left:350px;
+		margin-top:80px;
+		transform:  rotate(-60deg);
+
+	}
+	
+	#poly3{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(568px 17px, 559px 89px, 594px 108px, 621px 152px, 710px 158px, 737px 140px, 734px 17px, 600px 15px);
+		clip-path: polygon(568px 17px, 559px 89px, 594px 108px, 621px 152px, 710px 158px, 737px 140px, 734px 17px, 600px 10px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name3
+	{
+		margin-left:542px;
+		margin-top:70px;
+		transform:  rotate(25deg);
+
+	}
+	
+	#poly4{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(153px 188px, 125px 332px, 143px 409px, 187px 420px, 329px 387px, 353px 311px, 395px 284px, 396px 239px, 338px 242px, 288px 205px, 250px 202px, 210px 215px, 162px 196px);
+		clip-path: polygon(153px 188px, 125px 332px, 143px 409px, 187px 420px, 329px 387px, 353px 311px, 395px 284px, 396px 239px, 338px 242px, 288px 205px, 250px 202px, 210px 215px, 162px 196px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name4
+	{
+		margin-left:182px;
+		margin-top:292px;
+		transform:  rotate(0deg);
+
+	}
+	
+	#poly5{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(556px 95px, 528px 146px, 483px 235px, 502px 288px, 527px 283px, 596px 277px, 620px 189px, 587px 107px);
+		clip-path: polygon(556px 95px, 528px 146px, 483px 235px, 502px 288px, 527px 283px, 596px 277px, 620px 189px, 587px 107px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name5
+	{
+		margin-left:481px;
+		margin-top:174px;
+		transform:  rotate(-45deg);
+
+	}
+	
+	#poly6{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(622px 165px, 617px 271px, 605px 296px, 615px 366px, 698px 352px, 699px 332px, 748px 291px, 746px 216px, 714px 221px, 712px 172px, 653px 166px);
+		clip-path: polygon(622px 165px, 617px 271px, 605px 296px, 615px 366px, 698px 352px, 699px 332px, 748px 291px, 746px 216px, 714px 221px, 712px 172px, 653px 166px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name6
+	{
+		margin-left:571px;
+		margin-top:254px;
+		transform:  rotate(-60deg);
+
+	}
+	
+	#poly7{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(446px 290px, 453px 374px, 465px 440px, 438px 483px, 400px 481px, 394px 519px, 439px 537px, 541px 490px, 601px 518px, 657px 460px, 676px 366px, 587px 370px, 563px 284px);
+		clip-path: polygon(446px 290px, 453px 374px, 465px 440px, 438px 483px, 400px 481px, 394px 519px, 439px 537px, 541px 490px, 601px 518px, 657px 460px, 676px 366px, 587px 370px, 563px 284px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name7
+	{
+		margin-left:461px;
+		margin-top:394px;
+		transform:  rotate(15deg);
+
+	}
+	
+	#poly8{
+		float:center;
+		height:600px;
+		width:1000px;
+		shape-outside: polygon(158px 436px,192px 521px,170px 550px,208px 588px, 443px 591px, 440px 535px, 384px 498px, 368px 425px, 343px 420px, 322px 387px, 229px 409px);
+		clip-path: polygon(158px 436px,192px 521px,170px 550px,208px 588px, 443px 591px, 440px 535px, 384px 498px, 368px 425px, 343px 420px, 322px 387px, 229px 409px);
+		opacity: 0.5;
+		
+	}
+	
+	#poly_name8
+	{
+		margin-left:201px;
+		margin-top:494px;
+		transform:  rotate(15deg);
+
+	}
+	
+	#print{
+		position:absolute;
+		margin-top:240px;
+		margin-left:300px;
+		height:250px;
+		width:250px;
+		opacity:0.5;
+	}
+
+</style>
+<script>
+	function polyon1()
+	{
+		let graf=document.getElementById('poly_name1');
+		let pol=document.getElementById('poly1');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Графство Лорен';
+		let descrip= "Лорен славится своими шахтами. На южном острове, который все называют 'Остров золота' скопилось множество рудных жил. Жители Лорена поколениями ходят в шахты, что вызвало создание нового праздника - Перестука. Суть праздника проста - берутся кирки, и стучат по всему, что гремит. Во время этого праздника в городе невозможно находиться. Благодаря этому, кстати, выходцев из Лорена легко отличить - они глуховаты. Так же на территории этого графства, возле шахт, расположены магические домны. Они используют Магические Камни в качестве угля. Хоть это и дорого, но так можно лить высококачественную сталь.";
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon1_out(){
+		let graf=document.getElementById('poly_name1');
+		let pol=document.getElementById('poly1');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Графство не выбрано';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon2()
+	{
+		let graf=document.getElementById('poly_name2');
+		let pol=document.getElementById('poly2');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Графство Сарухан';
+		let descrip= 'Сарухан был создан много лет назад гениальным фармацефтом - Саром о Ханом. Но за многие года настоящее имя в названии стерлось, и лишь старики ворчат на молодеж по этому поводу. Это графство известно своими травами. Любыми, будь то специи или лекарственные травы - здесь можно найти очень многое. Не только официальные лекарства, но и кое-что иное... ';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon2_out(){
+		let graf=document.getElementById('poly_name2');
+		let pol=document.getElementById('poly2');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Графство не выбрано';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon3()
+	{
+		let graf=document.getElementById('poly_name3');
+		let pol=document.getElementById('poly3');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Графство Дарутан';
+		let descrip= 'Дарутан является крупной каменоломней королевства, наравне с Лореном поставляя камень в казну. Вот только Лорен поставляет камень низкого качества, ибо для них это отходы, в то время как для Дарутана камень - это товар. Кроме продажи камня здесь развито скульптурирование. Почти в каждой лавке омжно встретить каменное яйцо, или какую-нибудь статуэтку. Редко когда можно найти оружие - из камня его делать трудно, да и тупится оно здесь довольно быстро';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon3_out(){
+		let graf=document.getElementById('poly_name3');
+		let pol=document.getElementById('poly3');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Графство не выбрано';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon4()
+	{
+		let graf=document.getElementById('poly_name4');
+		let pol=document.getElementById('poly4');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'База "О-7"';
+		let descrip= 'Это главная военная база королевства. Её основное занятие - это штамповка флотов. Мощности этой базы настолько мощны, что они способны создавать два линкора одновременно. Однако, это требует огромных ресурсов. База пожирает около 75% всех ресурсов королевства. Проход на нее обычным гражданам запрещен.';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon4_out(){
+		let graf=document.getElementById('poly_name4');
+		let pol=document.getElementById('poly4');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Графство не выбрано';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon5()
+	{
+		let graf=document.getElementById('poly_name5');
+		let pol=document.getElementById('poly5');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Графство Люг-О-Дан';
+		let descrip= 'Это графство - основной перевалочный пункт для торговцев. Только в этом городе установлены Воздушные Колодцы. Все остальные колодцы установлены вне городов и постоянно блуждают около королевства, что усложняет процесс дсотавки. В общем, благодаря Колодцам торговцам очень удобно идти здесь. Хоть это и дороже. Зато быстро. Так же именно здесь распологается Главное Управление Королевскими Приключенцами (ГУКП). Хотя многие помнят эту организацию, как Центральное Управление Королевскими Авантюристами. Правда, не помнят, зачем было изменено название';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon5_out(){
+		let graf=document.getElementById('poly_name5');
+		let pol=document.getElementById('poly5');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Графство не выбрано';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon6()
+	{
+		let graf=document.getElementById('poly_name6');
+		let pol=document.getElementById('poly6');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Графство Шихон';
+		let descrip= 'Шихон - это благословенная земля. Своеобразный Ковчег. Именно на этой земле при подъеме сохранились все виды животных. Поэтому тут раскинулись бескрайние поля для пастбищ. Запах навоза чувствуется от острова еще на подходе, поэтому опытные небоходцы даже с закрытыми глазами точно знают, около какого острова они находятся. Так же здесь хорошо развито кожевенное дело. Каких только изделий из кожи тут только нет.';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon6_out(){
+		let graf=document.getElementById('poly_name6');
+		let pol=document.getElementById('poly6');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Графство не выбрано';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon7()
+	{
+		let graf=document.getElementById('poly_name7');
+		let pol=document.getElementById('poly7');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Графство Готун';
+		let descrip= 'Одно из самых крупных образований в королевстве. Имеются в виду графства. Тут все просто - граф Готун является троюродным сводным братом герцога Кассли, который, в свою очередь, является... неважно. Суть в том, что это графство поставляет в метрополию зерно и древесину. Благодаря богтаым лесам, здесь всегда есть дерево. Граф Готун оказался довольно разумным человеком, поэтому все вырубленные леса засаживаются обратно, что, в теории, потом позволит собрать деревянный урожай еще раз.';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon7_out(){
+		let graf=document.getElementById('poly_name7');
+		let pol=document.getElementById('poly7');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Графство не выбрано';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function polyon8()
+	{
+		let graf=document.getElementById('poly_name8');
+		let pol=document.getElementById('poly8');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl= 'Графство Фидваго';
+		let descrip= 'Стратегически важное графство, доверенное генералу Фидваго. Только здесь, на одном из островов графства, появился Фонтан Маны. Незримая струйка силы протекает сквозь нижние этажи, и собиратеся здесь, превращаясь в видимую ману. Которую собирают в кварцевые камни, превращая их в Камни Талантов. Качество камня по большей части зависит от случайности. Но в дворце графа хранится редчайший камень, прозванный Адрамалих. По слухам, этот камень позволяет превращаться в дракона из легенд. Кроме того, здесь расположена тюрьма для обычных заключенных "Хижинка". Это, конечно, не "Икар", расположенный на соседнем острове, но тоже довольно крепкая тюрьма';
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0;
+		graf.style.display= "none";
+	}
+	
+	function polyon8_out(){
+		let graf=document.getElementById('poly_name8');
+		let pol=document.getElementById('poly8');
+		let tex=document.getElementById('text_descr');
+		let lab=document.getElementById('place_title');
+		let titl = 'Графство не выбрано';
+		let descrip = 'Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные...';;
+		lab.textContent = titl;
+		tex.textContent = descrip;
+		pol.style.opacity=0.5;
+		graf.style.display= "block";
+	}
+	
+	function defens_print(){
+		let prn = document.getElementById('print');
+		prn.src="печать-защищенная.png"
+		prn.style.opacity = 1
+		
+	}
+	
+	function undefens_print(){
+		let prn = document.getElementById('print');
+		prn.src="печать.png"
+		prn.style.opacity = 0.5
+	}
+</script>
+	
+<body bgcolor="#FFDE99" background="map_back.jpg">
+
+<div id="map_image"><img src="карта_митра.png" width="650" height="600" alt=""/></div>
+<div id="map_title" class="descr">Сурра</div>
+<div id="place_title" class="descr">Графство не выбрано</div>
+<div id="place_description" class="descr">
+	<img src="печать.png" width="500" height="500" alt="" id="print" onmouseover="defens_print()" onmouseout="undefens_print()"/>
+	<p id="text_descr">Добро пожаловать в волшебную карту, о путешественник. Наведи указующий перст на графство, и поведаются тебе все тайны его. Ну, не все, а только общеизвестные... </p>
+</div>
+
+<div id="poly1" class="poly" onmouseover='polyon1()' onMouseOut="polyon1_out()"></div>
+<p id="poly_name1" class="graf" onmouseover='polyon1()'>Графство Лорен</p>
+<div id="poly2" class="poly" onmouseover='polyon2()' onMouseOut="polyon2_out()"></div>	
+<p id="poly_name2" class="graf"onmouseover='polyon2()' onMouseOut="polyon2_out()">Графство Сарухан</p>
+<div id="poly3" class="poly" onmouseover='polyon3()' onMouseOut="polyon3_out()"></div>	
+<p id="poly_name3" class="graf" onmouseover='polyon3()' onMouseOut="polyon3_out()">Графство Дарутан</p>
+<div id="poly4" class="poly" onmouseover='polyon4()' onMouseOut="polyon4_out()"></div>	
+<p id="poly_name4" class="voen" onmouseover='polyon4()'>База "О7"</p>
+<div id="poly5" class="poly" onmouseover='polyon5()' onMouseOut="polyon5_out()"></div>	
+<p id="poly_name5" class="graf" onmouseover='polyon5()' onMouseOut="polyon5_out()">Графство <br> Люг-О-Дан</p>
+<div id="poly6" class="poly" onmouseover='polyon6()' onMouseOut="polyon6_out()"></div>	
+<p id="poly_name6" class="graf" onmouseover='polyon6()' onMouseOut="polyon6_out()">Графство Шихон</p>
+<div id="poly7" class="poly" onmouseover='polyon7()' onMouseOut="polyon7_out()"></div>
+<p id="poly_name7" class="graf" onmouseover='polyon7()'>Графство Готун</p>
+<div id="poly8" class="poly" onmouseover='polyon8()' onMouseOut="polyon8_out()"></div>	
+<p id="poly_name8" class="graf" onmouseover='polyon8()'>Графство Фидваго</p>
+<div id="poly9" class="poly"></div>	
+<div id="poly10" class="poly"></div>	
+<div id="poly11" class="poly"></div>	
+<div id="poly12" class="poly"></div>	
+<div id="poly13" class="poly"></div>	
+<div id="poly14" class="poly"></div>
+	<!--14 мест
+<p id="text_label">/p>
+-->
+</body>
+</html>
